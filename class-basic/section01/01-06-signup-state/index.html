@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>리액트 실습</title>
+
+    <!-- 리액트 다운로드 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- 바벨 다운로드 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 1. 최신문법으로 작성해도, 많은 브라우저에서 실행 가능하도록 옛날 문법으로 바꿔줌! -->
+    <!-- 2. 가짜HTML(JSX) 입력하면, 진짜HTML로 바꿔줌! -->
+    <link rel="stylesheet" href="./App.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <script type="text/babel" src="./App.js"></script>
+    <script type="text/babel" src="./index.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.버튼스타일 {
+  background-color: yellow;
+
+  @apply text-철수가좋아하는색깔; /* 테일윈드CSS랑 함께 쓰기 */
+}
+
+.네모상자스타일1 {
+  width: 200px;
+  height: 200px;
+  /* background-color: red; */
+
+  @apply bg-영희가좋아하는색깔; /* 테일윈드CSS랑 함께 쓰기 */
+}
+
+.네모상자스타일2 {
+  width: 200px;
+  height: 200px;
+  /* background-color: red; */
+
+  @apply bg-영희가좋아하는색깔; /* 테일윈드CSS랑 함께 쓰기 */
+
+  padding: 30px; /* @tailwind base에 이미 box-sizing: border-box 들어있음 */
+}

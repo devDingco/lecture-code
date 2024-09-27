@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ApolloSetting from "@/commons/settings/06-02-apollo-setting";
 
 const 철수의폰트 = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,7 @@ export default function RootLayout(props) {
     <html lang="en">
       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
         <div>=========여기위는 레이아웃입니다 =======</div>
-        {props.children}
+        <ApolloSetting>{props.children}</ApolloSetting>
         <div>=========여기아래는 레이아웃입니다 =======</div>
       </body>
     </html>

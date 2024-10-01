@@ -19,6 +19,20 @@ export const metadata: Metadata = {
   description: "반갑습니다. 철수의 홈페이지에 오신 것을 환영합니다!",
 };
 
+// 1. 구조분해할당 리팩토링 전
+// export default function RootLayout(props) {
+//   return (
+//     <html lang="en">
+//       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
+//         <div>=========여기위는 레이아웃입니다 =======</div>
+//         <ApolloSetting>{props.children}</ApolloSetting>
+//         <div>=========여기아래는 레이아웃입니다 =======</div>
+//       </body>
+//     </html>
+//   );
+// }
+
+// 2. 구조분해할당 리팩토링 후   =>   let { children } = props
 interface IProps {
   children: React.ReactNode;
 }

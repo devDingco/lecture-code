@@ -19,12 +19,15 @@ export const metadata: Metadata = {
   description: "반갑습니다. 철수의 홈페이지에 오신 것을 환영합니다!",
 };
 
-export default function RootLayout(props) {
+interface IProps {
+  children: React.ReactNode;
+}
+export default function RootLayout({ children }: IProps) {
   return (
     <html lang="en">
       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
         <div>=========여기위는 레이아웃입니다 =======</div>
-        <ApolloSetting>{props.children}</ApolloSetting>
+        <ApolloSetting>{children}</ApolloSetting>
         <div>=========여기아래는 레이아웃입니다 =======</div>
       </body>
     </html>

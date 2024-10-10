@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>안전한 리팩토링 실습</title>
+    <script>
+      // 구조분해할당 => let { name, age, school } = profile
+      const qqq = ({ name, age, school }) => {
+        console.log(name); // 철수
+        console.log(age); // 12
+        console.log(school); // 다람쥐초등학교
+      };
+
+      const name = "철수";
+      const age = 12;
+      const school = "다람쥐초등학교";
+      qqq({ name, age, school }); // shorthand-property
+    </script>
+  </head>
+  <body></body>
+</html>

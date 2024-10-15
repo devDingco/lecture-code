@@ -1,0 +1,18 @@
+const profile = {
+    name: "철수",
+    age: 12,
+    school: "다람쥐초등학교"
+}
+undefined
+
+const profile2 = profile
+undefined
+
+profile2.name = "영희"
+'영희'
+
+profile2
+{name: '영희', age: 12, school: '다람쥐초등학교'}
+
+profile
+{name: '영희', age: 12, school: '다람쥐초등학교'}

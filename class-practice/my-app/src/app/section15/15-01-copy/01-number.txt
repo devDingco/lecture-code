@@ -1,0 +1,17 @@
+let age = 12
+undefined
+
+let age2 = age
+undefined
+
+age2
+12
+
+age2 = 15
+15
+
+age2
+15
+
+age
+12

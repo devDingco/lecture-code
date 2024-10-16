@@ -1,0 +1,11 @@
+const profile = {
+    name: "철수",
+    age: 12,
+    school: function(){
+        console.log(this)
+    }
+}
+undefined
+
+profile.school()
+VM1043:5 {name: '철수', age: 12, school: ƒ}

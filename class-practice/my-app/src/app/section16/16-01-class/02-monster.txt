@@ -1,0 +1,45 @@
+class Monster {
+    power = 50
+
+    attack() {
+        console.log("공격합니다!!")
+    }
+}
+undefined
+
+class 슈퍼몬스터 extends Monster {
+
+
+    // 오버라이딩
+    attack() {
+        console.log("슈퍼몬스터 필살기!!")
+    }
+
+    run() {
+        console.log("도망가자!!")
+    }
+}
+undefined
+
+const monster = new Monster()
+undefined
+
+monster.power
+50
+
+monster.attack()
+VM180:5 공격합니다!!
+undefined
+
+const supermonster = new 슈퍼몬스터()
+undefined
+
+supermonster.power
+50
+
+supermonster.attack()
+VM373:6 슈퍼몬스터 필살기!!
+undefined
+
+supermonster.run()
+VM373:10 도망가자!!

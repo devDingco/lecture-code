@@ -1,0 +1,21 @@
+class Date {
+
+    qqq = 3
+
+    getFullYear(){
+
+    }
+
+    getMonth() {
+
+    }
+
+}
+
+// date는? => 인스턴스
+const date = new Date()
+date.qqq
+date.getFullYear()
+date.getMonth() // 메서드
+
+const date2 = new Date() // 두번, 세번 찍어내기 가능

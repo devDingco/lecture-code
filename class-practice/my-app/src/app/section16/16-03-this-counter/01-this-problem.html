@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>this의 이해</title>
+    <script>
+      class 카운터클래스 {
+        count = 10;
+
+        카운트올려주세요() {
+          console.log("=========================");
+          console.log("카운트올려주세요 this: ", this); // this: 버튼   =>   this는 실행 주체가 누구냐에 따라 바뀜
+          console.log("=========================");
+
+          console.log("카운트를 올려주면 됨");
+          this.count = this.count + 1;
+          console.log(this.count); // this: 버튼   =>   따라서, count가 없음
+        }
+
+        버튼그려주세요() {
+          console.log("=========================");
+          console.log("버튼그려주세요 this: ", this); // this: 카운터클래스   =>  this는 현재 시각적으로 감싸고 있는 객체 또는 클래스
+          console.log("=========================");
+
+          const button = document.createElement("button");
+          //   button.count = 50;
+          button.innerText = "카운트 올리는 버튼";
+          button.addEventListener("click", this.카운트올려주세요);
+          document.body.appendChild(button);
+        }
+      }
+
+      window.onload = () => {
+        const 카운터 = new 카운터클래스();
+        카운터.버튼그려주세요();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

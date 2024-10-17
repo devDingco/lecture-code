@@ -15,7 +15,13 @@ export default function FunctionalCounterPage() {
     };
   }, []);
 
-  // 2. useEffect 잘못된 사용법(1. 추가렌더링, 2. 무한루프)
+  // // 2. useEffect 잘못된 사용법 - 추가 렌더링
+  // useEffect(() => {
+  //   setCount((prev) => prev + 1);
+  // }, []);
+
+
+  // // 3. useEffect 잘못된 사용법 - 무한루프
   // useEffect(() => {
   //   setCount((prev) => prev + 1);
   // }, [count]);

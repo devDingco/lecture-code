@@ -42,7 +42,7 @@ export default function ImageUploadPage() {
       <input
         type="file"
         onChange={onChangeFile}
-        style={{ display: "none" }}
+        style={{ display: "none" }} // 개발자도구에서 태그 확인 가능(그림만 안보임)
         ref={fileRef}
       />
       <img src={`https://storage.googleapis.com/${imageUrl}`} />

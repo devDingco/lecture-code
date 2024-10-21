@@ -100,9 +100,9 @@ export default function ImageUploadPage() {
       <input
         type="file"
         onChange={onChangeFile}
-        style={{ display: "none" }}
+        style={{ display: "none" }} // 개발자도구에서 태그 확인 가능(그림만 안보임)
         ref={fileRef}
-        accept="image/jpeg,image/png" // 1. jpg/jpeg 모두 가능, 2. 띄어쓰기없이 ','로 구분하기
+        accept="image/png, image/jpeg" // 1. jpg/jpeg 모두 가능,  2. 콤마(',')로 구분하기
       />
       <img src={`https://storage.googleapis.com/${imageUrl}`} />
       <button onClick={onClickSubmit}>GRAPHQL-API 요청하기</button>

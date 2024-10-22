@@ -17,6 +17,7 @@ const documents = {
     "\n  query fetchBoardsCount {\n    fetchBoardsCount\n  }\n": types.FetchBoardsCountDocument,
     "\n  mutation uploadFile($file: Upload!) {\n    uploadFile(file: $file) {\n      url\n    }\n  }\n": types.UploadFileDocument,
     "\n  mutation createBoard($createBoardInput: CreateBoardInput!) {\n    createBoard(createBoardInput: $createBoardInput) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n": types.CreateBoardDocument,
+    "\n  query fetchBoardWithSearches($mypage: Int, $mysearch: String) {\n    fetchBoards(page: $mypage, search: $mysearch) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n": types.FetchBoardWithSearchesDocument,
 };
 
 /**
@@ -49,6 +50,10 @@ export function graphql(source: "\n  mutation uploadFile($file: Upload!) {\n    
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation createBoard($createBoardInput: CreateBoardInput!) {\n    createBoard(createBoardInput: $createBoardInput) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n"): (typeof documents)["\n  mutation createBoard($createBoardInput: CreateBoardInput!) {\n    createBoard(createBoardInput: $createBoardInput) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query fetchBoardWithSearches($mypage: Int, $mysearch: String) {\n    fetchBoards(page: $mypage, search: $mysearch) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n"): (typeof documents)["\n  query fetchBoardWithSearches($mypage: Int, $mysearch: String) {\n    fetchBoards(page: $mypage, search: $mysearch) {\n      _id\n      writer\n      title\n      contents\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

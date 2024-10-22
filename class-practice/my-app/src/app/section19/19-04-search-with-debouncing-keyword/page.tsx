@@ -2,6 +2,7 @@
 
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
+import _ from "lodash";
 
 const FETCH_BOARDS = gql`
   query fetchBoardWithSearches($mypage: Int, $mysearch: String) {
@@ -15,7 +16,9 @@ const FETCH_BOARDS = gql`
 `;
 
 export default function StaticRoutingMovedPage() {
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
+  const [keyword, setKeyword] = useState("");
+
   const { data, refetch } = useQuery(FETCH_BOARDS);
 
   console.log(data);
@@ -25,21 +28,38 @@ export default function StaticRoutingMovedPage() {
     refetch({ mypage: Number(event.currentTarget.id) });
   };
 
+  const getDebounce = _.debounce((value) => {
+    refetch({ mysearch: value, mypage: 1 });
+    setKeyword(value);
+  }, 500);
+
   const onChangeSearch = (event) => {
-    setSearch(event.currentTarget.value);
+    getDebounce(event.target.value);
   };
 
-  const onClickSearch = () => {
-    refetch({ mysearch: search, mypage: 1 });
-  };
+  // const onClickSearch = () => {
+  //   refetch({ mysearch: search, mypage: 1 });
+  // };
 
   return (
     <div>
       검색어입력: <input type="text" onChange={onChangeSearch} />
-      <button onClick={onClickSearch}>검색하기</button>
+      {/* <button onClick={onClickSearch}>검색하기</button> */}
       {data?.fetchBoards.map((el) => (
         <div key={el._id}>
-          <span style={{ margin: "10px" }}>{el.title}</span>
+          <span style={{ margin: "10px" }}>
+            {el.title
+              .replaceAll(keyword, `@#$${keyword}@#$`)
+              .split("@#$")
+              .map((el, index) => (
+                <span
+                  key={`${el}_${index}`}
+                  style={{ color: el === keyword ? "red" : "black" }}
+                >
+                  {el}
+                </span>
+              ))}
+          </span>
           <span style={{ margin: "10px" }}>{el.writer}</span>
         </div>
       ))}

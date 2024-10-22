@@ -5,7 +5,7 @@ import { useState } from "react";
 import _ from "lodash";
 
 const FETCH_BOARDS = gql`
-  query fetchBoards($mypage: Int, $mysearch: String) {
+  query fetchBoardWithSearches($mypage: Int, $mysearch: String) {
     fetchBoards(page: $mypage, search: $mysearch) {
       _id
       writer

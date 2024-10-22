@@ -1,7 +1,9 @@
 "use client";
 
 import { gql, useQuery } from "@apollo/client";
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
+import _ from "lodash";
+import { FetchBoardWithSearchesDocument } from "@/commons/graphql/graphql";
 
 const FETCH_BOARDS = gql`
   query fetchBoardWithSearches($mypage: Int, $mysearch: String) {
@@ -16,18 +18,24 @@ const FETCH_BOARDS = gql`
 
 export default function StaticRoutingMovedPage() {
   // const [search, setSearch] = useState("");
-  const { data, refetch } = useQuery(FETCH_BOARDS);
+  const [keyword, setKeyword] = useState("");
+
+  const { data, refetch } = useQuery(FetchBoardWithSearchesDocument);
 
   console.log(data);
 
-  const onClickPage = (event) => {
+  const onClickPage = (event: MouseEvent<HTMLSpanElement>) => {
     // 검색에서 refetch할 때, search 검색어가 refetch에 저장되어 있는 상태이므로, 여기서 굳이 추가 안해도 됨
     refetch({ mypage: Number(event.currentTarget.id) });
   };
 
-  const onChangeSearch = (event) => {
-    // setSearch(event.currentTarget.value);
-    refetch({ mysearch: event.currentTarget.value, mypage: 1 });
+  const getDebounce = _.debounce((value) => {
+    refetch({ mysearch: value, mypage: 1 });
+    setKeyword(value);
+  }, 500);
+
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    getDebounce(event.target.value);
   };
 
   // const onClickSearch = () => {
@@ -40,7 +48,19 @@ export default function StaticRoutingMovedPage() {
       {/* <button onClick={onClickSearch}>검색하기</button> */}
       {data?.fetchBoards.map((el) => (
         <div key={el._id}>
-          <span style={{ margin: "10px" }}>{el.title}</span>
+          <span style={{ margin: "10px" }}>
+            {el.title
+              .replaceAll(keyword, `@#$${keyword}@#$`)
+              .split("@#$")
+              .map((el, index) => (
+                <span
+                  key={`${el}_${index}`}
+                  style={{ color: el === keyword ? "red" : "black" }}
+                >
+                  {el}
+                </span>
+              ))}
+          </span>
           <span style={{ margin: "10px" }}>{el.writer}</span>
         </div>
       ))}

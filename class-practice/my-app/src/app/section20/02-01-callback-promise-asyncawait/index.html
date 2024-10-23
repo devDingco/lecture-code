@@ -1,0 +1,95 @@
+<!-- 
+ 
+`http://numbersapi.com/random?min=1&max=200`
+`https://koreanjson.com/posts/${num}`
+`https://koreanjson.com/posts?userId=${userId}` 
+
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>콜백과 친구들</title>
+        <script>
+            // function addEventListener(aaa, bbb){
+            // 셋팅된 API 주소로 요청이 끝났다고 가정
+            // const res = 70; 셋팅된 API 주소에서 받아온 결과
+
+            // bbb(res)
+            //}
+
+            const onClickCallback = () => {
+                const aa = new XMLHttpRequest();
+                aa.open("get", `http://numbersapi.com/random?min=1&max=200`);
+                aa.send();
+                aa.addEventListener("load", (res) => {
+                    console.log(res); // API 요청 결과
+                    const num = res.target.response.split(" ")[0]; // 115 랜덤숫자
+
+                    const bb = new XMLHttpRequest();
+                    bb.open("get", `https://koreanjson.com/posts/${num}`);
+                    bb.send();
+                    bb.addEventListener("load", (res) => {
+                        console.log(res);
+                        const userId = JSON.parse(res.target.response).UserId; // 5 (작성자 ID)
+
+                        const cc = new XMLHttpRequest();
+                        cc.open("get", `https://koreanjson.com/posts?userId=${userId}`);
+                        cc.send();
+                        cc.addEventListener("load", (res) => {
+                            console.log(res.target.response);
+                            console.log(res.target.response);
+                            console.log(res.target.response);
+                        });
+                    });
+                });
+            };
+
+            const onClickPromise = () => {
+                console.log("1번째로 실행됩니다!!!");
+                fetch(`http://numbersapi.com/random?min=1&max=200`)
+                    .then((res) => res.text())
+                    .then((qqq) => {
+                        console.log("2번째로 실행됩니다!!!");
+                        const num = qqq.split(" ")[0]; // 115 (랜덤 숫자)
+                        return fetch(`https://koreanjson.com/posts/${num}`);
+                    })
+                    .then((res) => res.json())
+                    .then((qqq) => {
+                        console.log("3번째로 실행됩니다!!!");
+                        const userId = qqq.UserId; // 5 (작성자 ID)
+                        return fetch(`https://koreanjson.com/posts?userId=${userId}`);
+                    })
+                    .then((res) => res.json())
+                    .then((qqq) => {
+                        console.log("4번째로 실행됩니다!!!");
+                        console.log(qqq);
+                    });
+                console.log("5번째로 실행됩니다!!!");
+            };
+
+            // fetch, axios 등 => 대표적인 Promise를 지원하는 기능
+            // fetch, axios 등을 기다리는 2가지 방법
+            // 1. .then() 활용
+            // 2. await 활용     => 주의) await는 아무데나 붙인다고 뒤에껄 기다리는게 아님!!
+            const onClickAsyncAwait = async () => {
+                const res1 = await fetch(`http://numbersapi.com/random?min=1&max=200`);
+                const qqq1 = await res1.text();
+                const num = qqq1.split(" ")[0]; // 115 (랜덤 숫자)
+
+                const res2 = await fetch(`https://koreanjson.com/posts/${num}`);
+                const qqq2 = await res2.json();
+                const userId = qqq2.UserId; // 5 (작성자 ID)
+
+                const res3 = await fetch(`https://koreanjson.com/posts?userId=${userId}`);
+                const qqq3 = await res3.json();
+                console.log(qqq3);
+            };
+        </script>
+    </head>
+    <body>
+        <button onclick="onClickCallback()">Callback 연습하기!!</button>
+        <button onclick="onClickPromise()">Promise 연습하기!!</button>
+        <button onclick="onClickAsyncAwait()">AsyncAwait 연습하기</button>
+    </body>
+</html>

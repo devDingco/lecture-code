@@ -7,18 +7,18 @@ const 카운터 = () => {
 
   const 카운트올리는기능 = () => {
     // 1. 기본방법
-    // 카운트바꿔주는함수((prev) => prev + 1);
+    카운트바꿔주는함수((prev) => prev + 1);
 
     // 2. 함수선언식
-    // 카운트바꿔주는함수(function (prev) {
-    //   // 로직 추가 가능
-    //   // if() 등
+    카운트바꿔주는함수(function (prev) {
+      // 로직 추가 가능
+      // if() 등
 
-    //   return prev + 1;
-    // });
+      return prev + 1;
+    });
 
     // 3. 매개변수 변경 가능
-    카운트바꿔주는함수((klasfklasdjfklasj) => klasfklasdjfklasj + 1);
+    카운트바꿔주는함수((prev) => prev + 1);
   };
 
   // 함수의 리턴은 1개만 할 수 있음! => 따라서, 하나로 묶자!

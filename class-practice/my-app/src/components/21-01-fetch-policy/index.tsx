@@ -9,7 +9,7 @@ const FETCH_BOARDS = gql`
       writer
       title
       contents
-      #   likeCount // 더 많아지면? 추가요청 필요
+      likeCount # 더 많아지면? 추가요청 필요
     }
   }
 `;

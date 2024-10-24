@@ -8,7 +8,7 @@ const FETCH_BOARDS = gql`
       _id
       writer
       title
-      #   contents // 더 적어지면? 추가요청 안함
+      #   contents 더 적어지면? 추가요청 안함
     }
   }
 `;

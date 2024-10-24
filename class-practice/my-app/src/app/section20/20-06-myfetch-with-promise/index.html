@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>나만의 fetch 만들기</title>
+    <script>
+      const myfetch = (API주소담는통) => {
+        return new Promise((resolve, reject) => {
+          const qq = new XMLHttpRequest();
+          qq.open("get", API주소담는통);
+          qq.send();
+          qq.addEventListener("load", (res) => {
+            resolve(res.target.response);
+          });
+        });
+      };
+
+      const onClickFetch = async () => {
+        // 1) .then()으로 받기
+        myfetch("https://koreanjson.com/posts/1").then((res) => {
+          console.log("여기는 .then() 입니다: ", res);
+        });
+
+        // 2) await로 받기
+        const result = await myfetch("https://koreanjson.com/posts/1");
+        console.log("여기는 await 입니다: ", result);
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickFetch()">나만의 fetch 요청하기</button>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>클로저 실습!!</title>
+    <script>
+      function aaa() {
+        const apple = 10;
+
+        function bbb() {
+          const banana = 20;
+          console.log(banana);
+          console.log(apple);
+          console.log(qqq);
+
+          function ccc() {
+            const tomato = 30;
+            console.log(tomato);
+            console.log(banana);
+            console.log(apple);
+            console.log(qqq);
+          }
+
+          ccc();
+        }
+
+        const qqq = 3;
+
+        bbb();
+      }
+
+      aaa();
+    </script>
+  </head>
+  <body></body>
+</html>

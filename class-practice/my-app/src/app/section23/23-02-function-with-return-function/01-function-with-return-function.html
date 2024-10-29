@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>HOF 실습!!</title>
+    <script>
+      function aaa() {
+        const apple = 10;
+
+        return function bbb() {
+          const banana = 20;
+          console.log(banana);
+          console.log(apple);
+        };
+      }
+
+      aaa()();
+    </script>
+  </head>
+  <body></body>
+</html>

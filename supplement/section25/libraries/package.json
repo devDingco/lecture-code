@@ -1,6 +1,6 @@
 {
-  "name": "codecamp-ui",
-  "version": "1.0.0",
+  "name": "@my-frontend/ui",
+  "version": "2.3.3",
   "private": false,
   "main": "./src/index.ts",
   "scripts": {

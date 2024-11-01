@@ -7,7 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ISchema, schema } from "./schema";
 // import { InputSoftSFull } from "@/commons/ui/25-05-input-base-typescript-generic-npm-publish";
 // import { ButtonSoftMFull } from "@/commons/ui/25-05-button-base-typescript-generic-npm-publish";
-import { InputSoftSFull, ButtonSoftMFull } from "codecamp-ui";
+// import { InputSoftSFull, ButtonSoftMFull } from "codecamp-ui";
+import { InputSoftSFull, ButtonSoftMFull } from "@codecamp2/ui";
 
 // const 나의그래프큐엘셋팅 = gql`
 //   #   # 타입적는곳

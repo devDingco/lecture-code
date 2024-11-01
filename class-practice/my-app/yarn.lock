@@ -556,6 +556,16 @@
     "@babel/helper-validator-identifier" "^7.25.7"
     to-fast-properties "^2.0.0"
 
+"@codecamp2/ui@^2.8.8":
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/@codecamp2/ui/-/ui-2.8.8.tgz#6c6b17644d3f8daa2304f8daef57f6fa3ac5e2b5"
+  integrity sha512-CrQf06WS1OqxapksnSDjsZ+KCwwd89fB6Axg1NjXy+uudaJSNeBmO+erzw13yNe6JLZWaSTOk7THZ5DX7pwfKw==
+  dependencies:
+    next "14.2.16"
+    react "^18"
+    react-dom "^18"
+    react-hook-form "^7.53.1"
+
 "@ctrl/tinycolor@^3.6.1":
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.6.1.tgz#b6c75a56a1947cc916ea058772d666a2c8932f31"

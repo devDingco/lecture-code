@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@apollo/client": "^3.11.8",
+    "@codecamp2/ui": "^2.8.8",
     "@hookform/resolvers": "^3.9.1",
     "antd": "^5.21.2",
     "apollo-upload-client": "^18.0.1",

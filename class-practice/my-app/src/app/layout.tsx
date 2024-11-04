@@ -6,6 +6,7 @@ import ApolloUploadSetting from "@/commons/settings/18-01-apollo-upload-setting"
 import ApolloHeaderSetting from "@/commons/settings/22-01-apollo-header-setting";
 import ApolloHeaderSettingLocalStorage from "@/commons/settings/22-02-apollo-header-setting-localstorage";
 import ApolloHeaderAndErrorSetting from "@/commons/settings/26-01-apollo-header-and-error-setting";
+import ApolloHeaderAndErrorSettingRefresh from "@/commons/settings/26-02-apollo-header-and-error-setting-refresh";
 
 const 철수의폰트 = localFont({
   src: "./fonts/GeistVF.woff",
@@ -48,9 +49,11 @@ export default function RootLayout({ children }: IProps) {
         {/* <ApolloUploadSetting> */}
         {/* <ApolloHeaderSetting> */}
         {/* <ApolloHeaderSettingLocalStorage> */}
-        <ApolloHeaderAndErrorSetting>
+        {/* <ApolloHeaderAndErrorSetting> */}
+        <ApolloHeaderAndErrorSettingRefresh>
           <Layout>{children}</Layout>
-        </ApolloHeaderAndErrorSetting>
+        </ApolloHeaderAndErrorSettingRefresh>
+        {/* </ApolloHeaderAndErrorSetting> */}
         {/* </ApolloHeaderSettingLocalStorage> */}
         {/* </ApolloHeaderSetting> */}
         {/* </ApolloUploadSetting> */}

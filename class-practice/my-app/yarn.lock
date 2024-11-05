@@ -1701,6 +1701,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@portone/browser-sdk@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@portone/browser-sdk/-/browser-sdk-0.0.10.tgz#0f6e8869da6d8d82f601540d0cf6225fbd4ef2f6"
+  integrity sha512-AylNhel3iWZuq632Axfgg5CLTVgv5xhjxJb0Umfy4chi/PV0K2R5ry/9ywOrKTPdSWqo3KwKVZGgv4X46Gvz+g==
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -6409,6 +6414,11 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+uuid@^11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-11.0.2.tgz#a8d68ba7347d051e7ea716cc8dcbbab634d66875"
+  integrity sha512-14FfcOJmqdjbBPdDjFQyk/SdT4NySW4eM0zcG+HqbHP5jzuH56xO3J1DGhgs/cEMCfwYi3HQI1gnTO62iaG+tQ==
 
 value-or-promise@^1.0.11, value-or-promise@^1.0.12:
   version "1.0.12"

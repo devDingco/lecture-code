@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이벤트루프</title>
+    <script>
+      function onClickLoop() {
+        console.log("=======시작!!!!=======");
+
+        function aaa() {
+          console.log("aaa-시작");
+          bbb();
+          console.log("aaa-끝");
+        }
+
+        async function bbb() {
+          console.log("bbb-시작");
+          const friend = await "철수";
+          console.log(friend);
+        }
+
+        aaa();
+
+        console.log("=======끝!!!!=======");
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickLoop()">시작하기</button>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이벤트루프 실습</title>
+    <script>
+      const onClickButton = () => {
+        console.log("시작!!!");
+
+        // 매크로큐에 들어감
+        setTimeout(() => {
+          new Promise((resolve) => resolve("철수")).then(() => {
+            console.log("저는 Promise(setTimeout 내부에서 실행될 거예요!!!)");
+          });
+          console.log("저는 setTimeout!!! 매크로큐 0초 뒤에 실행될 거예요!!!");
+        }, 0);
+
+        // 마이크로큐에 들어감
+        new Promise((resolve) => resolve("철수")).then(() => {
+          console.log("저는 Promise(1)!!! 마이크로큐!! ");
+        });
+
+        // 매크로큐에 들어감
+        setInterval(() => {
+          console.log("저는 setInterval!!! 매크로큐!! 0초마다 실행될 거예요!!");
+        }, 0);
+
+        let sum = 0;
+        for (let i = 0; i <= 9000000000; i++) {
+          sum = sum + 1;
+        }
+
+        // 마이크로큐에 들어감
+        new Promise((resolve) => resolve("철수")).then(() => {
+          console.log("저는 Promise(2)!!! 마이크로큐!!");
+        });
+
+        console.log("끝!!!");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickButton()">시작하기</button>
+  </body>
+</html>

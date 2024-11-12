@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>프리로드 실습</title>
+
+    <!-- 기본적으로 한 번에 다운로드 6개씩 받아오는데, body태그의 이미지는 가장 마지막에 다운로드  -->
+    <!-- 그 이미지를 먼저 받고 싶으면? => "파일 프리로드" -->
+    <link rel="preload" as="image" href="./dog.jpg" />
+
+    <!-- 라이브서버에서 Disable-Cache 체크하고 테스트 -->
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index1.js"></script>
+    <script src="./index2.js"></script>
+    <script src="./index3.js"></script>
+    <script src="./index4.js"></script>
+    <script src="./index5.js"></script>
+    <script src="./index6.js"></script>
+  </head>
+  <body>
+    <img src="./dog.jpg" />
+  </body>
+</html>

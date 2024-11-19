@@ -40,11 +40,16 @@ export const metadata: Metadata = {
 // 2. 구조분해할당 리팩토링 후   =>   let { children } = props
 interface IProps {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }
-export default function RootLayout({ children }: IProps) {
+export default function RootLayout({ children, modal }: IProps) {
   return (
     <html lang="en">
       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
+        {/* 모달영역(페러렐라우팅) */}
+        <div>{modal}</div>
+
+        {/* 메인영역 */}
         <div>=========여기위는 레이아웃입니다 =======</div>
         {/* <ApolloUploadSetting> */}
         {/* <ApolloHeaderSetting> */}

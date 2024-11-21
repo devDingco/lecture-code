@@ -21,8 +21,9 @@ it("게시글 잘 등록되는지 테스트 하자!", async () => {
     //   uri: "http://mock.com/graphql",
     //   fetch
     // }),
+    // cache: new InMemoryCache(),
 
-    // 2. node 18버전 이후로 node에도 fetch 내장되어 node-fetch, cross-fetch 필요없음
+    // 2. node 18버전 이후로 node에도 fetch가 내장되어 node-fetch, cross-fetch 필요없음
     uri: "http://mock.com/graphql",
     cache: new InMemoryCache(),
   });

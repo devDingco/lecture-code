@@ -1,5 +1,10 @@
 import GraphqlMutationPage from "@/app/section35/35-05-jest-unit-test-mocking/page";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { useRouter } from "next/navigation";
 
@@ -11,6 +16,13 @@ jest.mock("next/navigation", () => ({
 
 it("게시글 잘 등록되는지 테스트 하자!", async () => {
   const client = new ApolloClient({
+    // 1. node 18버전 아래에서 node에는 fetch가 없어서 node-fetch, crsso-fetch 주입해야함
+    // link: new HttpLink({
+    //   uri: "http://mock.com/graphql",
+    //   fetch
+    // }),
+
+    // 2. node 18버전 이후로 node에도 fetch 내장되어 node-fetch, cross-fetch 필요없음
     uri: "http://mock.com/graphql",
     cache: new InMemoryCache(),
   });

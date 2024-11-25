@@ -1,0 +1,12 @@
+version: "3.8"
+
+# 컴퓨터들
+services:
+  # 컴퓨터이름
+  my-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  # 컴퓨터이름2
+  # my-frontend2:
